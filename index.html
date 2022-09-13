@@ -10,9 +10,7 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
 
   <!-- Font awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 
   <!-- Use font Rubik -->
   <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet" />
@@ -22,8 +20,7 @@
 </head>
 
 <body>
-  <div class="wrapper">
-
+  <section class="wrapper">
     <div class="container">
       <div class="navbar__weather">
         <div class="navbar__logo">
@@ -73,14 +70,25 @@
             </div>
           </div>
           <div class="content-search">
-            <div class="content-input">
-              <input type="text" placeholder="Search city .....">
-              <iconify-icon id="inputSearch" icon="bx:search-alt"></iconify-icon>
+            <div>
+              <div class="content-input">
+                <input id="inputSearch" name="name" type="text" placeholder="Search city .....">
+                <iconify-icon id="buttonSearch" icon="bx:search-alt"></iconify-icon>
+              </div>
+              <div class="content-notification">
+                <iconify-icon icon="clarity:notification-solid-badged"></iconify-icon>
+              </div>
             </div>
-            <div class="content-notification">
-              <iconify-icon icon="clarity:notification-solid-badged"></iconify-icon>
-            </div>
+            <ul class="listAdd" id="listAdd">
+              <!-- <li>
+                <i class="fa fa-map-marker-alt"></i>
+                <span class="addressName">Hoài Ân </span>
+                <span class="cityName">Bình Định Viet Nam</span>
+              </li> -->
+              
+            </ul>
           </div>
+          
         </div>
         <div class="content__weather">
           <div class="content__weather-left">
@@ -148,15 +156,15 @@
                   <p>Clouds</p>
                   <div class="weather-display">
                     <span>96%</span>
-  
+
                     <div class="process-bar">
                       <div class="process-range"></div>
                     </div>
-  
-  
+
+
                   </div>
                 </div>
-                
+
 
 
               </div>
@@ -181,13 +189,55 @@
             </div>
           </div>
           <div class="forecast__timesun">
+            <div class="forecast__timesun-icon">
+              <iconify-icon icon="emojione:sun-with-face"></iconify-icon>
+            </div>
+            <div class="forecast__timesun-chart">
+              <div class="forecast__timesun-block">
+                <div class="forecast__time-display">
+
+                </div>
+              </div>
+
+              <div class="forecast__timesun-range">
+                <div class="forecast__timesun-sunrise">
+                </div>
+                <div class="forecast__timesun-sunset">
+                </div>
+                
+              </div>
+              <div class="forecast__contentname">
+                <div class="forecast__contentname-sunrise">
+                  <span>Sunrise</span>
+                  <span class="sunrise">5:30</span>
+                </div>
+                <div class="forecast__contentname-sunset">
+                  <span>Sunset</span>
+                  <span class="sunset">6:30</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="forecast__UV">
+            <div class="forecast__UV-icon">
+              <iconify-icon icon="tabler:uv-index"></iconify-icon>
+            </div>
             
           </div>
         </div>
-        
+
       </div>
     </div>
-  </div>
+  </section>
+
+  <template id="addressSearch">
+    <li>
+      <i class="fa fa-map-marker-alt"></i>
+      <span class="addressName"> </span>
+      <span class="cityName"></span>
+    </li>
+   
+  </template>
   <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
   <script type="module" src="/js/main.js"></script>
 </body>

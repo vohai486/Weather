@@ -131,7 +131,11 @@ a:active {
     font-size: 22px;
 }
 
-.content-search {
+
+.content-search{
+    position: relative;
+}
+.content-search>div {
     display: flex;
 
 }
@@ -143,15 +147,39 @@ a:active {
     padding: 10px 18px;
     border-radius: 12px;
     color: #f7812df2;
+    position: relative;
 }
 
 .content-input input {
     background-color: transparent;
     width: 0px;
+    /* width: 200px; */
     border: none;
     outline: none;
     transition: all .5s ease-in-out;
 }
+.listAdd{
+    position: absolute;
+    width: 80%;
+    background-color: #fff;
+    border-radius:  10px;
+    z-index: 10;
+}
+.listAdd li{
+    width: 100%;
+    padding: 8px 15px;
+    font-size: 13px;
+}
+.listAdd li i{
+    margin-right: 20px;
+}
+.listAdd li .addressName{
+    color: rgb(60,64,67);
+}
+.listAdd li .cityName{
+    color: #70757a;
+}
+
 
 .content-input input.is-show {
     width: 200px;
@@ -410,21 +438,74 @@ a:active {
     color: #f7812df2;
 }
 
-.forecast-test img {
-    animation-name: example;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    animation-delay: 2s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+
+.forecast__timesun-icon{
+    color: #f7812df2;
+    margin-top: 10px;
+    font-size: 50px;
+}
+.forecast__timesun-block{
+    width: 230px;
+    height: 120px;
+    margin: 0 auto;
+    border: 1px dashed #f7812df2;
+    border-top-left-radius: 115px;
+    border-top-right-radius: 115px;
+    border-bottom: none;
+    overflow: hidden;
+}
+.forecast__time-display{
+    background: linear-gradient(to bottom, rgba(245, 164, 106, 0.3) ,rgba(245, 164, 106, 0.03) );
+    height: 100%;
+    width: 10%;
+}
+.forecast__timesun-range{
+    width: 100%;
+    height: 3px ;
+    background-color:#f7812df2;
+    position: relative;
+}
+.forecast__timesun-range::before,.forecast__timesun-range::after{
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    bottom: -65%;
+}
+.forecast__timesun-range::before{
+    background-color:#f7812df2 ;
+    left: 8%;
+}
+.forecast__timesun-range::after{
+    background-color: #000;
+    right: 8%;
 }
 
-@keyframes example {
-    from {
-        transform: translateX(-10px);
-    }
+.forecast__contentname{
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+.forecast__contentname>div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.forecast__contentname>div span:last-child{
+    color: #AAAAAA;
+    font-weight: normal;
+}
 
-    to {
-        transform: translateX(0);
-    }
+.forecast__UV{
+   padding: 14px 0;
+    background-color: #19283f;
+    width: 100%;
+    border-radius: 24px;
+}
+.forecast__UV-icon{
+    color: #f7812df2;
 }
