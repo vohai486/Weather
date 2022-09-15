@@ -158,12 +158,18 @@ a:active {
     outline: none;
     transition: all .5s ease-in-out;
 }
+
 .listAdd{
     position: absolute;
     width: 80%;
     background-color: #fff;
     border-radius:  10px;
     z-index: 10;
+    transition:.1s ease-in;
+}
+.listAdd.hidden{
+    height: 0px;
+    opacity: 0;
 }
 .listAdd li{
     width: 100%;

@@ -1,0 +1,123 @@
+{
+    "users": [
+        {
+            "id": "1",
+            "name": "Nguyễn Văn A",
+            "phone": "0337551234",
+            "age": 19,
+            "gender": "male",
+            "position":"employee",
+            "createdAt": 1663125020000,
+            "updatedAt": 1663125020000,
+            "address": "Thu Duc, HCM",
+            "storeID": "1"
+        },
+        {
+            "id": "2",
+            "name": "Nguyễn Thị Lan",
+            "phone": "0337651236",
+            "age": 19,
+            "gender": "female",
+            "position":"employee",
+            "createdAt": 1663125020001,
+            "updatedAt": 1663125020001,
+            "address": "Quan 2, HCM",
+            "storeID": "1"
+        },
+        {
+            "id": "3",
+            "name": "Nguyễn Thị Trinh",
+            "phone": "0335451234",
+            "age": 21,
+            "gender": "female",
+            "position":"employee",
+            "createdAt": 1663125020006,
+            "updatedAt": 1663125020006,
+            "address": "Quan 2, HCM",
+            "storeID": "1"
+        },
+        {
+            "id": "4",
+            "name": "Nguyễn Xuân Trường",
+            "phone": "0567551234",
+            "age": 23,
+            "gender": "male",
+            "position":"employee",
+            "createdAt": 1663125020020,
+            "updatedAt": 1663125020020,
+            "address": "Thu Duc, HCM",
+            "storeID": "1"
+        },
+        {
+            "id": "5",
+            "name": "Nguyễn Văn A",
+            "phone": "0336551234",
+            "age": 24,
+            "gender": "male",
+            "position":"manager",
+            "createdAt": 1663125020030,
+            "updatedAt": 1663125020030,
+            "address": "Go Vap, HCM",
+            "storeID": "1"
+        },
+        {
+            "id": "6",
+            "name": "Dương Thanh Vàng",
+            "phone": "0896551235",
+            "age": 24,
+            "gender": "male",
+            "position":"manager",
+            "createdAt": 1663125020090,
+            "updatedAt": 1663125020090,
+            "address": "Binh Thanh, HCM",
+            "storeID": "2"
+        },
+        {
+            "id": "7",
+            "name": "Lê Văn Mót",
+            "phone": "0336557891",
+            "age": 19,
+            "gender": "male",
+            "position":"employee",
+            "createdAt": 1663168220000,
+            "updatedAt": 1663168220000,
+            "address": "Go Vap, HCM",
+            "storeID": "2"
+        },
+        {
+            "id": "8",
+            "name": "Nguyễn Thành Tùng",
+            "phone": "0331111234",
+            "age": 23,
+            "gender": "male",
+            "position":"employee",
+            "createdAt": 1663168220011,
+            "updatedAt": 1663168220011,
+            "address": "Cu Chi, HCM",
+            "storeID": "2"
+        },{
+            "id": "9",
+            "name": "Bùi Văn Tài",
+            "phone": "0996551234",
+            "age": 21,
+            "gender": "male",
+            "position":"employee",
+            "createdAt": 1663125020030,
+            "updatedAt": 1663125020030,
+            "address": "Go Vap, HCM",
+            "storeID": "2"
+        },{
+            "id": "10",
+            "name": "Lê Thị Trình",
+            "phone": "0336599234",
+            "age": 19,
+            "gender": "female",
+            "position":"employee",
+            "createdAt": 1663125020112,
+            "updatedAt": 1663125020112,
+            "address": "Go Vap, HCM",
+            "storeID": "2"
+        }
+
+    ]
+}
