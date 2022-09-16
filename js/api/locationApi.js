@@ -1,7 +1,7 @@
 import fetchRequest from './fetchApi'
 
 const apiKey = '38784a80952a47f3a36c1beccf741e22'
-const location_api_key = `https://api.geoapify.com/v1/geocode/autocomplete?apiKey=${apiKey}&`
+const location_api = `https://api.geoapify.com/v1/geocode/autocomplete?apiKey=${apiKey}&`
 
 export const locationApi = {
   getAddress: (address) => {
@@ -17,5 +17,5 @@ const locationEndPoins = {
 }
 
 const getApiPath = (endPoints) => {
-  return location_api_key + endPoints
+  return location_api + endPoints
 }

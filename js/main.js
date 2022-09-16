@@ -5,7 +5,7 @@ document.getElementById('buttonSearch').addEventListener('click', () => {
   document.querySelector('.content-input input').classList.toggle('is-show')
 })
 
-export const innitSearch = ({ elementID, onChange }) => {
+const innitSearch = ({ elementID, onChange }) => {
   const searchInput = document.getElementById(elementID)
 
   if (!searchInput) return
@@ -27,22 +27,20 @@ const createLiAddress = (item, index) => {
   return liElement
 }
 
-const renderListAddress = (list) => {
+const renderListAddress = (value, list) => {
+  const ulEle = document.querySelector('.listAdd')
+  if (ulEle) ulEle.parentNode.removeChild(ulEle)
+  const searchInput = document.querySelector('#inputSearch')
   const ulElement = document.createElement('ul')
   document.querySelector('.content-search').appendChild(ulElement)
   ulElement.classList.add('listAdd')
-
-  const ulEle = document.getElementsByClassName('listAdd')
-  if (ulEle.length > 1) {
-    ulEle[0].remove()
-  }
-
   if (!Array.isArray(list)) return
 
   list.forEach((item, index) => {
     const li = createLiAddress(item, index)
     ulElement.appendChild(li)
   })
+
   ulElement.addEventListener('click', (event) => {
     const url = new URL(window.location)
     let index = event.target.parentElement.dataset.index
@@ -51,7 +49,17 @@ const renderListAddress = (list) => {
     url.searchParams.set('lat', list[index].properties.lat)
     url.searchParams.set('lon', list[index].properties.lon)
     history.pushState({}, '', url)
+    ulElement.classList.toggle('hidden')
+    searchInput.value = getLocation(list[index]).formatted
     console.log(getLocation(list[index]))
+  })
+  document.body.addEventListener('click', (e) => {
+    if (e.target.parentElement.matches('.content-input') || e.target.matches('.content-input')) {
+      ulElement.classList.toggle('hidden')
+      searchInput.value = value
+    } else {
+      ulElement.classList.add('hidden')
+    }
   })
 }
 
@@ -71,8 +79,9 @@ const handleFiterChange = async (value) => {
   list = response.features
 
   if (list) {
-    renderListAddress(list)
+    renderListAddress(value, list)
   }
+  return
 }
 ;(async () => {
   innitSearch({
