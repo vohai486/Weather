@@ -225,7 +225,6 @@ a:active {
     background-size: cover;
     border-radius: 18px;
     color: #000;
-
     padding: 24px;
 }
 
@@ -245,7 +244,7 @@ a:active {
 
 }
 
-.weather__title-icon {
+.weather__title-icon{
     width: 40px;
     height: 40px;
     background-color: #FFFFFF;

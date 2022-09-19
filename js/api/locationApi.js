@@ -11,8 +11,8 @@ export const locationApi = {
 
 const locationEndPoins = {
   address: (address) => {
-    const endPoins = `text=${encodeURIComponent(address)}`
-    return getApiPath(endPoins)
+    const endPoints = `text=${encodeURIComponent(address)}`
+    return getApiPath(endPoints)
   },
 }
 
