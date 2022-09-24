@@ -57,78 +57,16 @@ const renderListAddress = async (value, list) => {
     // getForecast(formatted, lat, lon)
   })
 }
-// const getForecast = async (formatted, lat, lon) => {
-//   await weatherApi
-//     .getWeather(lat, lon)
-//     .then((res) => renderWeather(formatted, res))
-//     .catch((err) => console.log(err))
-//   await weatherApi
-//     .getForecast(lat, lon)
-//     .then((res) => renderForecast(formatted, res))
-//     .catch((err) => console.log(err))
-// }
+const getCounter = () => {
+  const hours = document.querySelector('.hours')
+  const minutes = document.querySelector('.minutes')
+  const seconds = document.querySelector('.seconds')
+  const timeNow = new Date()
+  hours.textContent = `0${timeNow.getHours()}:`.slice(-3)
+  minutes.textContent = `0${timeNow.getMinutes()}:`.slice(-3)
+  seconds.textContent = `0${timeNow.getSeconds()}`.slice(-2)
+}
 
-// const renderWeather = (formatted, res) => {
-//   console.log(res)
-//   document.querySelector('.weather__title-heading').firstElementChild.textContent = formatted
-//   setInnerHTML(
-//     '.weather__temperature-max',
-//     `${Math.floor(res.main.temp_max - 273.15)}<sup>o</sup>C`
-//   )
-//   setInnerHTML(
-//     '.weather__temperature-min',
-//     `${Math.floor(res.main.temp_min - 273.15)}<sup>o</sup>C`
-//   )
-//   setInnerHTML('.weather__speed', `${Math.floor(res.main.temp_max - 273.15)}<sup>o</sup>C`)
-//   setContent('.weather__temperature-des', res.weather[0].description)
-//   setContent('.status-Pressure', `${res.main.pressure} hPa`)
-//   setContent('.status-Visibility', `${Math.round(res.visibility / 1000)} km`)
-//   setContent('.status-Humadidy', `${res.main.humidity} %`)
-//   setContent('.city-status', `${res.weather[0].main}`)
-//   setContent('.weather__speed', `${Math.round(res.wind.speed * 3.6)} km/h`)
-//   setContent('.weather__temperature-des-more', `${res.weather[0].description}`)
-//   // if(res.weather)
-//   setContent('.weather-display span', `${res.clouds.all}%`)
-//   document.querySelector('.weather__process span').style.left = `${res.clouds.all - 6}%`
-//   document.querySelector('.process-range').style.width = `${res.clouds.all - 2}%`
-//   setContent('.forecast__header-city span:first-child', `${res.weather[0].main}`)
-//   setContent('.forecast__header-city span:last-child', formatted)
-//   setInnerHTML('.forecast__header-temp span', `${Math.floor(res.main.temp - 273.15)}<sup>o</sup>C`)
-//   setContent('.sunrise', timeFormat(res.sys.sunrise))
-//   setContent('.sunset', timeFormat(res.sys.sunset))
-//   document.querySelector('.forecast__time-display').style.width = `${findTimeRange(
-//     res.sys.sunrise * 1000,
-//     res.sys.sunset * 1000
-//   )}%`
-// }
-
-// const findTimeRange = (sunrise, sunset) => {
-//   const timestamp = new Date().getTime()
-//   const sunrisestamp = new Date(sunrise).getTime()
-//   const sunsetstamp = new Date(sunset).getTime()
-//   if (timestamp > sunsetstamp) {
-//     return 100
-//   }
-//   if (timestamp < sunrisestamp) {
-//     return 0
-//   }
-//   return ((timestamp - sunrisestamp) / (sunsetstamp - sunrise)) * 100
-// }
-// const timeFormat = (value) => {
-//   const timestamp = new Date(value * 1000)
-//   const hour = timestamp.getHours()
-//   const minutes = timestamp.getMinutes()
-//   return `${hour}:${minutes}`
-// }
-
-// const setInnerHTML = (selector, value) => {
-//   const ele = document.querySelector(selector)
-//   if (ele) ele.innerHTML = value
-// }
-// const setContent = (selector, value) => {
-//   const ele = document.querySelector(selector)
-//   if (ele) ele.textContent = value
-// }
 const handleFiterChange = async (value) => {
   let list = ''
   const response = await locationApi.getAddress(value)
@@ -139,6 +77,7 @@ const handleFiterChange = async (value) => {
   return
 }
 ;(async () => {
+  setInterval(getCounter, 1000)
   innitSearch({
     elementID: 'inputSearch',
     onChange: (value) => handleFiterChange(value),
