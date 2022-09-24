@@ -20,216 +20,89 @@
 </head>
 
 <body>
+  
   <section class="wrapper">
+    <header>
+      <h1>Weather Dashboard</h1>
+    </header>
     <div class="container">
-      <div class="navbar__weather">
-        <div class="navbar__logo">
-          <img src="/images/logoRmbg1.gif" alt="" />
-          <p>Weather</p>
+      <div class="content__left">
+        <div class="content__left-search">
+          <input type="text" class="city-input" placeholder="Search for Location / City">
+          <iconify-icon icon="bx:search-alt"></iconify-icon>
         </div>
-
-        <ul class="navbar__list">
-          <li class="active">
-            <a href="#">
-              <iconify-icon icon="ant-design:bar-chart-outlined"></iconify-icon>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <iconify-icon icon="bi:binoculars"></iconify-icon>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <iconify-icon icon="bx:current-location"></iconify-icon>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <iconify-icon icon="bi:calendar-date"></iconify-icon>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <iconify-icon icon="ant-design:setting-outlined"></iconify-icon>
-            </a>
-          </li>
-        </ul>
-
+        <div class="content__left-weather">
+          <h2 class="cityName">Ho Chi Minh City</h2>
+          <p class="temperature">91 <sup>0</sup>F</p>
+          <p class="humidity">Humidity:</p>
+          <p class="speed">Speed Limit:</p>
+          <p class="feels">Feels like:</p>
+          <p class="uv">UV Index:</p>
+        </div>
       </div>
-      <div class="content">
-        <div class="content__header">
-          <div class="content-info">
-            <div class="content-avatar">
-              <img src="/images/avatar.jpg" alt="">
-            </div>
-            <div class="content-name">
-              <span>Hello, </span>
-              <span>Petter</span>
+      <div class="content__right">
+        <h3>7 Day Weather</h3>
+        <div class="listForecast">
+          <div class="forecast">
+            <span>9/24/2022</span>
+            <div class="forecast-img">
 
+              <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="">
             </div>
+            <span>Temp</span>
+            <span>Humidity</span>
           </div>
-          <div class="content-search">
-            <div>
-              <div class="content-input">
-                <input id="inputSearch" name="name" type="text" placeholder="Search city .....">
-                <iconify-icon id="buttonSearch" icon="bx:search-alt"></iconify-icon>
-              </div>
-              <div class="content-notification">
-                <iconify-icon icon="clarity:notification-solid-badged"></iconify-icon>
-              </div>
+          <div class="forecast">
+            <span>9/24/2022</span>
+            <div class="forecast-img">
+
+              <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="">
             </div>
-            <!-- <ul class="listAdd" id="listAdd"> -->
-              <!-- <li>
-                <i class="fa fa-map-marker-alt"></i>
-                <span class="addressName">Hoài Ân </span>
-                <span class="cityName">Bình Định Viet Nam</span>
-              </li> -->
-              
-            <!-- </ul> -->
+            <span>Temp</span>
+            <span>Humidity</span>
+          </div>
+          <div class="forecast">
+            <span>9/24/2022</span>
+            <div class="forecast-img">
+
+              <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="">
+            </div>
+            <span>Temp</span>
+            <span>Humidity</span>
+          </div>
+          <div class="forecast">
+            <span>9/24/2022</span>
+            <div class="forecast-img">
+
+              <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="">
+            </div>
+            <span>Temp</span>
+            <span>Humidity</span>
+          </div>
+          <div class="forecast">
+            <span>9/24/2022</span>
+            <div class="forecast-img">
+
+              <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="">
+            </div>
+            <span>Temp</span>
+            <span>Humidity</span>
+          </div>
+          <div class="forecast">
+            <span>9/24/2022</span>
+            <div class="forecast-img">
+
+              <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="">
+            </div>
+            <span>Temp</span>
+            <span>Humidity</span>
           </div>
           
         </div>
-        <div class="content__weather">
-          <div class="content__weather-left">
-            <div class="weather__status">
-              <div class="weather__title">
-                <div class="weather__title-icon">
-                  <!-- <img src="http://openweathermap.org/img/wn/04d@2x.png" alt=""> -->
-                  <i class="fa fa-cloud-sun"></i>
-                  <!-- <i class="fa fa-cloud-sun-rain"></i> -->
-                  <!-- <i class="fa-solid fa-cloud-sun-rain"></i> -->
-                </div>
-                <div class="weather__title-heading">
-                  <span>Hồ Chí Minh</span>
-                  <span>Thời tiết hôm nay</span>
-                </div>
-              </div>
-              <div class="weather__temperature">
-                <div>
-                  <span class="weather__temperature-max">30<sup>o</sup>C</span>
-                  <span class="weather__temperature-min">30<sup>o</sup>C</span>
-                </div>
-
-                <p class="weather__temperature-des">Mây mù</p>
-              </div>
-              <div class="weather__description-short">
-                <div class="status">
-                  <span>Pressure</span>
-                  <span class="status-Pressure">1</span>
-                </div>
-                <div class="status">
-                  <span>Visibility</span>
-                  <span class="status-Visibility">2</span>
-
-                </div>
-                <div class="status">
-                  <span>Humadidy</span>
-                  <span class="status-Humadidy">3</span>
-
-                </div>
-
-              </div>
-
-
-            </div>
-          </div>
-          <div class="content__weather-right">
-
-            <div class="weather__status">
-              <div class="weather__title">
-                <div class="weather__title-icon">
-                  <i class="fa fa-wind"></i>
-                </div>
-                <div class="weather__title-heading">
-                  <span>Wind</span>
-                  <span class="city-status">Clouds</span>
-                </div>
-              </div>
-              <div class="weather__temperature">
-                <div>
-                  <span class="weather__speed">10.9Km</span>
-                </div>
-
-                <p class="weather__temperature-des-more">Mây mù</p>
-              </div>
-              <div class="weather__process">
-                <div class="weather__process-block">
-                  <p>Clouds</p>
-                  <div class="weather-display">
-                    <span>96%</span>
-
-                    <div class="process-bar">
-                      <div class="process-range"></div>
-                    </div>
-
-
-                  </div>
-                </div>
-
-
-
-              </div>
-
-
-
-
-            </div>
-          </div>
-
-        </div>
       </div>
-      <div class="forecast">
-        <div>
-          <div class="forecast__header">
-            <div class="forecast__header-city">
-              <span>Clouds</span>
-              <span>Hồ Chí Minh, Vn</span>
-            </div>
-            <div class="forecast__header-temp">
-              <span>30<sup>o</sup>C</span>
-            </div>
-          </div>
-          <div class="forecast__timesun">
-            <div class="forecast__timesun-icon">
-              <iconify-icon icon="emojione:sun-with-face"></iconify-icon>
-            </div>
-            <div class="forecast__timesun-chart">
-              <div class="forecast__timesun-block">
-                <div class="forecast__time-display">
 
-                </div>
-              </div>
-
-              <div class="forecast__timesun-range">
-                <div class="forecast__timesun-sunrise">
-                </div>
-                <div class="forecast__timesun-sunset">
-                </div>
-                
-              </div>
-              <div class="forecast__contentname">
-                <div class="forecast__contentname-sunrise">
-                  <span>Sunrise</span>
-                  <span class="sunrise">5:30</span>
-                </div>
-                <div class="forecast__contentname-sunset">
-                  <span>Sunset</span>
-                  <span class="sunset">6:30</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="forecast__UV">
-            <div class="forecast__UV-icon">
-              <iconify-icon icon="tabler:uv-index"></iconify-icon>
-            </div>
-            
-          </div>
-        </div>
-<!--  -->
-      </div>
     </div>
+    
   </section>
 
   <template id="addressSearch">
