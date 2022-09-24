@@ -61,11 +61,43 @@ header h1 {
 }
 .content__left{
     flex: 1;
+    position: relative;
 }
 .content__right{
     flex: 3;
 }
-
+.listAddress{
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    color: rgb(60,64,67);
+    gap: 5px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
+    padding:5px 0;
+}
+.listAddress.hide{
+    width: 0;
+}
+.listAddress li{
+    display: block;
+    padding: 5px 10px;
+    font-size: 13px;
+}
+.listAddress li:hover{
+    background-color:rgba(60,64,67,0.04) ;
+}
+.addressName{
+    color: rgb(60,64,67);
+    
+}
+.cityName{
+    color: #70757a;
+}
 .content__left .content__left-search {
     display: flex;
     justify-content: space-between;
