@@ -8,6 +8,7 @@ const innitSearch = ({ elementID, onChange }) => {
   if (!searchInput) return
 
   const debounceSearch = debounce((event) => {
+    if (event.target.value.length === 0) return
     onChange?.(event.target.value)
   }, 700)
   searchInput.addEventListener('input', debounceSearch)
@@ -53,18 +54,43 @@ const renderListAddress = async (value, list) => {
       ulElement.classList.toggle('hidden')
 
       const { formatted, lat, lon } = list[index].properties
+      console.log(formatted, lat, lon)
+      renderWeather(formatted, lat, lon)
     }
     // getForecast(formatted, lat, lon)
   })
+}
+const setTextContent = (selector, value) => {
+  return (document.querySelector(selector).textContent = value)
+}
+const renderWeather = async (formatted, lat, lon) => {
+  const responseWeather = await weatherApi.getWeather(lat, lon)
+  const responseUVI = await weatherApi.getUVI(lat, lon)
+  const foreCast = await weatherApi.getForecast(lat, lon)
+  console.log(foreCast)
+  console.log(responseWeather)
+  const { temp, temp_max, temp_min, humidity, feels_like } = responseWeather.main
+  setTextContent('.temperature span', `${parseInt(temp - 272.5)}`)
+  setTextContent('.cityName', formatted)
+
+  document.querySelector(
+    '.img-weather img'
+  ).src = `https://openweathermap.org/img/wn/${responseWeather.weather[0].icon}@2x.png`
+  setTextContent('.humidity span', `${humidity} %`)
+  setTextContent('.feels span', `${parseInt(temp - 272.5)}`)
+  setTextContent('.uv span', responseUVI.value)
+  setTextContent('.wind span', parseInt(responseWeather.wind.speed * 10))
 }
 const getCounter = () => {
   const hours = document.querySelector('.hours')
   const minutes = document.querySelector('.minutes')
   const seconds = document.querySelector('.seconds')
-  const timeNow = new Date()
-  hours.textContent = `0${timeNow.getHours()}:`.slice(-3)
-  minutes.textContent = `0${timeNow.getMinutes()}:`.slice(-3)
-  seconds.textContent = `0${timeNow.getSeconds()}`.slice(-2)
+  setInterval(() => {
+    const timeNow = new Date()
+    hours.textContent = `0${timeNow.getHours()}:`.slice(-3)
+    minutes.textContent = `0${timeNow.getMinutes()}:`.slice(-3)
+    seconds.textContent = `0${timeNow.getSeconds()}`.slice(-2)
+  }, 800)
 }
 
 const handleFiterChange = async (value) => {
@@ -77,7 +103,7 @@ const handleFiterChange = async (value) => {
   return
 }
 ;(async () => {
-  setInterval(getCounter, 1000)
+  getCounter()
   innitSearch({
     elementID: 'inputSearch',
     onChange: (value) => handleFiterChange(value),

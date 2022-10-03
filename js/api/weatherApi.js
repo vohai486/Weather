@@ -1,13 +1,14 @@
 import fetchRequest from './fetchApi'
 
-const apiKey = '17983ea9a642af138408913232db50f0'
+const apiKey = '5349c0aa794b0ac2c41a1fb46fb40502'
 
-const forecast_Api = `https://api.openweathermap.org/data/2.5/forecast?appid=${apiKey}&units=metri&lang=vi&`
-const weather_Api = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}&units=metri&lang=vi&`
-
+const forecast_Api = `https://api.openweathermap.org/data/2.5/forecast?appid=${apiKey}&`
+const weather_Api = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}&`
+const uvi_Api = `https://api.openweathermap.org/data/2.5/uvi?appid=${apiKey}&`
 export const weatherApi = {
   getWeather: (lat, lon) => fetchRequest(weatherEndPoint.weather(lat, lon)),
   getForecast: (lat, lon) => fetchRequest(weatherEndPoint.forecast(lat, lon)),
+  getUVI: (lat, lon) => fetchRequest(weatherEndPoint.uvi(lat, lon)),
 }
 
 const weatherEndPoint = {
@@ -18,6 +19,10 @@ const weatherEndPoint = {
   forecast: (lat, lon) => {
     const endPoints = `lat=${lat}&lon=${lon}`
     return getApiPath(forecast_Api, endPoints)
+  },
+  uvi: (lat, lon) => {
+    const endPoints = `lat=${lat}&lon=${lon}`
+    return getApiPath(uvi_Api, endPoints)
   },
 }
 
