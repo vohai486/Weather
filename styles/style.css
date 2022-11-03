@@ -3,12 +3,16 @@
   margin: 0;
   box-sizing: border-box;
 }
-
+li,
+input {
+  cursor: pointer;
+}
 body {
   font-family: 'Rubik', sans-serif;
   height: 100vh;
   font-size: 16px;
   color: #ffffffbd;
+  user-select: none;
 
   background: linear-gradient(180deg, rgba(0, 0, 251, 0.723) 0%, rgba(96, 0, 111, 0.692) 80%);
 }
@@ -23,7 +27,7 @@ input {
 }
 
 .wrapper {
-  max-width: 960px;
+  max-width: 1080px;
   margin: 20px auto;
   border-radius: 25px;
   box-shadow: 2.5px 5px 4px #000000;
@@ -71,6 +75,34 @@ header h1 {
 .content__right {
   flex: 3;
 }
+
+.listForecast {
+  min-height: 426px;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes spinGlobal {
+  0% {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  border: 6px solid #007bff;
+  border-radius: 100px;
+  border-top: 6px solid transparent;
+  animation: spinGlobal 1s linear infinite;
+  display: none;
+}
+
 .listAddress {
   position: absolute;
   top: 10%;
@@ -127,11 +159,7 @@ header h1 {
 .iconSearch {
   display: block;
 }
-@keyframes spin {
-  0% {
-    transform: rotate(-360deg);
-  }
-}
+
 .counter {
   margin-bottom: 20px;
   text-align: center;
