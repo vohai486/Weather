@@ -2,9 +2,9 @@ import fetchRequest from './fetchApi'
 
 const apiKey = '5349c0aa794b0ac2c41a1fb46fb40502'
 
-const forecast_Api = `https://api.openweathermap.org/data/2.5/forecast?appid=${apiKey}&`
-const weather_Api = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}&`
-const uvi_Api = `https://api.openweathermap.org/data/2.5/uvi?appid=${apiKey}&`
+const forecast_Api = `https://api.openweathermap.org/data/2.5/forecast?appid=${apiKey}&units=metric&`
+const weather_Api = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}&units=metric&`
+const uvi_Api = `https://api.openweathermap.org/data/2.5/uvi?appid=${apiKey}&units=metric&`
 export const weatherApi = {
   getWeather: (lat, lon) => fetchRequest(weatherEndPoint.weather(lat, lon)),
   getForecast: (lat, lon) => fetchRequest(weatherEndPoint.forecast(lat, lon)),

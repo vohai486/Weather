@@ -28,6 +28,7 @@ const createLiAddress = (item, index) => {
 const renderListAddress = async (value, list) => {
   const ulEle = document.querySelector('.listAddress')
   if (ulEle) ulEle.parentNode.removeChild(ulEle)
+
   const searchInput = document.querySelector('#inputSearch')
   const ulElement = document.createElement('ul')
   document.querySelector('.content__left').appendChild(ulElement)
@@ -36,50 +37,50 @@ const renderListAddress = async (value, list) => {
 
   list.forEach((item, index) => {
     const li = createLiAddress(item, index)
-    ulElement.appendChild(li)
-  })
-
-  document.body.addEventListener('click', (event) => {
-    if (!event.target.matches(ulElement.className)) ulElement.classList.add('hide')
-    if (event.target.matches('#inputSearch')) ulElement.classList.remove('hide')
-    if (event.target.matches('.iconSearch')) searchInput.value = ''
-    else {
+    li.addEventListener('click', async (event) => {
       const url = new URL(window.location)
       let index = event.target.parentElement.dataset.index
       if (!list[index]) return
-      url.searchParams.set('address', list[index].properties.formatted)
-      url.searchParams.set('lat', list[index].properties.lat)
-      url.searchParams.set('lon', list[index].properties.lon)
-      history.pushState({}, '', url)
-      ulElement.classList.toggle('hidden')
-
+      // url.searchParams.set('address', list[index].properties.formatted)
+      // url.searchParams.set('lat', list[index].properties.lat)
+      // url.searchParams.set('lon', list[index].properties.lon)
+      // history.pushState({}, '', url)
       const { formatted, lat, lon } = list[index].properties
-      console.log(formatted, lat, lon)
       renderWeather(formatted, lat, lon)
-    }
-    // getForecast(formatted, lat, lon)
+      ulElement.parentNode.removeChild(ulElement)
+      document.getElementById('inputSearch').value = ''
+    })
+    ulElement.appendChild(li)
   })
 }
 const setTextContent = (selector, value) => {
   return (document.querySelector(selector).textContent = value)
 }
+const findForecast = (list) => {
+  if (list.length === 0 || !Array.isArray(list)) return
+  const newList = [...list].filter((item) => item.dt_txt.includes('00:00:00'))
+  console.log(newList)
+}
 const renderWeather = async (formatted, lat, lon) => {
+  console.log(formatted)
   const responseWeather = await weatherApi.getWeather(lat, lon)
   const responseUVI = await weatherApi.getUVI(lat, lon)
   const foreCast = await weatherApi.getForecast(lat, lon)
+  console.log(findForecast(foreCast.list))
+
   console.log(foreCast)
   console.log(responseWeather)
   const { temp, temp_max, temp_min, humidity, feels_like } = responseWeather.main
-  setTextContent('.temperature span', `${parseInt(temp - 272.5)}`)
+  setTextContent('.temperature span', `${Math.round(temp)}`)
   setTextContent('.cityName', formatted)
-
+  setTextContent('.description', responseWeather.weather[0].description)
   document.querySelector(
     '.img-weather img'
   ).src = `https://openweathermap.org/img/wn/${responseWeather.weather[0].icon}@2x.png`
   setTextContent('.humidity span', `${humidity} %`)
-  setTextContent('.feels span', `${parseInt(temp - 272.5)}`)
+  setTextContent('.feels span', `${Math.round(feels_like)}`)
   setTextContent('.uv span', responseUVI.value)
-  setTextContent('.wind span', parseInt(responseWeather.wind.speed * 10))
+  setTextContent('.wind span', parseFloat(responseWeather.wind.speed * 3.6).toFixed(2))
 }
 const getCounter = () => {
   const hours = document.querySelector('.hours')
@@ -94,10 +95,16 @@ const getCounter = () => {
 }
 
 const handleFiterChange = async (value) => {
+  if (value.trim().length === 0) return
   let list = ''
+  document.querySelector('.content-loading').style.display = 'block'
+  document.querySelector('.iconSearch').style.display = 'none'
+
   const response = await locationApi.getAddress(value)
   list = response.features
-  if (list) {
+  document.querySelector('.content-loading').style.display = 'none'
+  document.querySelector('.iconSearch').style.display = 'block'
+  if (list.length > 0) {
     renderListAddress(value, list)
   }
   return

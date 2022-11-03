@@ -1,185 +1,211 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Rubik', sans-serif;
-    height: 100vh;
-    font-size: 16px;
-    background: linear-gradient(180deg,
-            rgba(0, 0, 251, 0.723) 0%,
-            rgba(96, 0, 111, 0.692) 80%);
-    color: #ffffffbd;
+  font-family: 'Rubik', sans-serif;
+  height: 100vh;
+  font-size: 16px;
+  color: #ffffffbd;
+
+  background: linear-gradient(180deg, rgba(0, 0, 251, 0.723) 0%, rgba(96, 0, 111, 0.692) 80%);
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 input {
-    outline: none;
-    border: none;
+  outline: none;
+  border: none;
 }
 
 .wrapper {
-    max-width: 960px;
-    margin: 20px auto;
-    background-color: #00000051;
-    border-radius: 25px;
-    box-shadow: 2.5px 5px 4px #000000;
-
-    overflow: hidden;
+  max-width: 960px;
+  margin: 20px auto;
+  border-radius: 25px;
+  box-shadow: 2.5px 5px 4px #000000;
+  background-color: #00000051;
+  max-height: 960px;
+  overflow: hidden;
+  position: relative;
+}
+.wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
 }
 
 .header__search {
-    text-align: center;
+  text-align: center;
 }
 
 header {
-    box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+  box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%),
+    0px 1px 10px 0px rgb(0 0 0 / 12%);
 
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-    padding: 5px 0;
-
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  padding: 5px 0;
 }
 
 header h1 {
-    font-size: 45px;
-    font-family: "Rajdhani", sans-serif;
-    font-weight: 300;
+  font-size: 45px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 300;
 
-    text-align: center;
+  text-align: center;
 }
 
 .container {
-    padding: 30px 20px;
-    display: flex;
-    gap: 20px;
+  padding: 30px 20px;
+  display: flex;
+  gap: 20px;
 }
-.content__left{
-    flex: 1;
-    position: relative;
+.content__left {
+  flex: 1;
+  position: relative;
 }
-.content__right{
-    flex: 3;
+.content__right {
+  flex: 3;
 }
-.listAddress{
-    position: absolute;
-    top: 10%;
-    width: 100%;
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    color: rgb(60,64,67);
-    gap: 5px;
-    box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
-    padding:5px 0;
+.listAddress {
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  color: rgb(60, 64, 67);
+  gap: 5px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
+  padding: 5px 0;
 }
-.listAddress.hide{
-    width: 0;
+.listAddress.hide {
+  width: 0;
 }
-.listAddress li{
-    display: block;
-    padding: 5px 10px;
-    font-size: 13px;
+.listAddress li {
+  display: block;
+  padding: 5px 10px;
+  font-size: 13px;
 }
-.listAddress li:hover{
-    background-color:rgba(60,64,67,0.04) ;
+.listAddress li:hover {
+  background-color: rgba(60, 64, 67, 0.04);
 }
-.addressName{
-    color: rgb(60,64,67);
-    
+.addressName {
+  color: rgb(60, 64, 67);
 }
-.cityName{
-    color: #70757a;
+.cityName {
+  color: #70757a;
 }
-.content__left .content__left-search {
-    display: flex;
-    justify-content: space-between;
-    background-color: #fff;
-    padding: 6px 12px;
-    width: 250px;
-    margin: 0 auto 30px;
-    border-radius: 12px;
+.content__left .content__search {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 6px 12px;
+  width: 250px;
+  margin: 0 auto 30px;
+  border-radius: 12px;
 }
-.counter{
-    margin-bottom: 20px;
-    text-align: center;
-    font-size: 15px;
-    color: #fff;
+.content__search-icon {
+  display: flex;
+  justify-content: center;
+}
+.content-loading {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 3px solid #007bff;
+  border-top: 3px solid transparent;
+  animation: spin 1s linear infinite;
+  display: none;
+}
+.iconSearch {
+  display: block;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(-360deg);
+  }
+}
+.counter {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 15px;
+  color: #fff;
 }
 .city-input {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 .content__left iconify-icon {
-    color: #007bff;
-    font-size: 24px;
-    cursor: pointer;
-
+  color: #007bff;
+  font-size: 24px;
+  cursor: pointer;
 }
 
 .content__left-weather h2 {
-    text-align: center;
-    margin-bottom: 15px;
-    font-size: 25px;
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 25px;
 }
 
 .content__left-weather p {
-    margin-bottom: 10px;
-    font-size: 20px;
+  margin-bottom: 10px;
+  font-size: 20px;
 }
 
+.content__left-weather .description {
+  text-align: center;
+}
 /* .content__left-weather .temperature {
     text-align: center;
     margin-bottom: 0;
 } */
-.img-weather{
-    font-size: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+.img-weather {
+  font-size: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 .img-weather .temperature {
-    font-size: 50px;
+  font-size: 50px;
 }
-.temperature sup{
-    font-size: 20px;
+.temperature sup {
+  font-size: 20px;
 }
-.feels sup{
-    font-size: 10px;
+.feels sup {
+  font-size: 10px;
 }
-.content__right h3{
-    text-align: center;
-    font-size: 25px;
-    margin-bottom: 20px;
-   
-}
-
-.listForecast{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    padding:20px 30px;
-}
-.forecast{
-    background-color: #ffffff69;
-    padding: 13px;
-    border-radius: 12px;
+.content__right h3 {
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 20px;
 }
 
-.forecast-img{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.listForecast {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px 30px;
 }
-.forecast span,.forecast img{
-    display: block;
-    
+.forecast {
+  background-color: #ffffff69;
+  padding: 13px;
+  border-radius: 12px;
+}
+
+.forecast-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.forecast span,
+.forecast img {
+  display: block;
 }
