@@ -185,6 +185,7 @@ header h1 {
 .content__left-weather p {
   margin-bottom: 10px;
   font-size: 20px;
+  text-transform: capitalize;
 }
 
 .content__left-weather .description {
@@ -236,4 +237,7 @@ header h1 {
 .forecast span,
 .forecast img {
   display: block;
+}
+.forecast span {
+  text-transform: capitalize;
 }
